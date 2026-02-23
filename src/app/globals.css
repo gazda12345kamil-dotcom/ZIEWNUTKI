@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fcf8f2;
+  --foreground: #1e1b4b;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  touch-action: pan-y;
+  /* Wymuś przewijanie tylko góra-dół na wszystkim, bez szczypnięć */
+  -webkit-text-size-adjust: 100%;
+  /* Zapobiega auto-powiększaniu tekstu na poziomej orientacji iPhone */
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+}
+
+html {
+  touch-action: pan-y;
+  overscroll-behavior-x: none;
+}
+
+#root,
+#__next {
+  /* Zabezpieczenie na poziomie drzewa DOM Reacta */
+  touch-action: pan-y;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
