@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fcf8f2;
+  --foreground: #1e1b4b;
+}
+
+/* ============================================================
+   GLOBALNE BLOKOWANIE GESTÓW iOS Safari
+   Wymuszamy touch-action: pan-y na KAŻDYM elemencie DOM.
+   Dzięki temu żaden element (div, iframe, img, motion.div itd.)
+   nie może zostać powiększony gestem „szczypnięcia".
+   ============================================================ */
+*,
+*::before,
+*::after {
+  touch-action: pan-y !important;
+}
+
+html {
+  overscroll-behavior-x: none;
+  -ms-touch-action: pan-y;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE / Edge */
+}
+
+::-webkit-scrollbar {
+  display: none;
+  /* Chrome / Safari */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
